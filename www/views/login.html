@@ -5,13 +5,14 @@
     <div class="page-content login-screen-content">
       <div class="login-screen-title"><img src="img/Nuevologo.png" height="50%", width="50%"></div>
       <form>
+        
         <div class="list">
           <ul>
             <li class="item-content item-input">
               <div class="item-inner">
                 <div class="item-title item-label">Nombre</div>
                 <div class="item-input">
-                  <input type="text" name="usuario" id="usuario" placeholder="Nombre Registrado">                </div>
+                  <input type="text" name="usuario" id="usuario" placeholder="Nombre Registrado"></div>
               </div>
             </li>
             <li class="item-content item-input">
@@ -29,13 +30,32 @@
             <li><a class="list-button" onclick="Ingresar()">Sign In</a></li>
           </ul>
           <div class="block-footer">
-            <p><a href="#" class="close-login-screen">Recuperar Contraseña</a></p>
+      
             <p>Si eres nuevo usuario registrate por favor con el codigo prorcionado.</p>
-            <p><a href="/registro/" class="close-login-screen">Registro</a></p>
-            <button class="col button open-password">Password</button>
-            <button class="col button button-fill">Password</button>
+            <p><a href="javascript: void(0)" onclick="checarCodi()" class="close-login-screen">Registrarse</a></p>
           </div>
         </div>
+
+      <!--
+        <div class="list">
+          <li class="item-content item-input">
+            <div class="item-inner">
+              <div class="item-title item-label">Codigo</div>
+              <div class="item-input">
+                <input type="codigo" name="codigo" id="codigo" placeholder="codigo Registrado">
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="list">
+          <ul>
+            <li><a class="list-button" onclick="revCodigo()">revisar codigo</a></li>
+          </ul>
+        </div>
+      </div>-->
+     
+        
       </form>
     </div>
   </div>

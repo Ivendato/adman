@@ -156,6 +156,10 @@ h1 {
  
   }
 
+  .trans{
+    background: transparent;
+  }
+
 
   .text-white{
     color: white;

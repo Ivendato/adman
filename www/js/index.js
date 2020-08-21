@@ -2,9 +2,7 @@
 var $$ = Dom7;
 
 //MuestraMensaje();
-
-var idinmueble=0;
-
+ 
 var app = {
     /* Application Constructor
     initialize: function() {
@@ -86,13 +84,11 @@ function checkConnection() {
 }
 
 
-
-
 var app7 = new Framework7({
     // App root element
     root: '#app',
     // App Name
-    name: 'Team',
+    name: 'Adman',
     // App id
     id: 'com.adman.app',
     /* Enable swipe panel
@@ -134,8 +130,6 @@ var app7 = new Framework7({
   // Show preloader before Ajax request
    //app7.preloader.show('blue');
 
-   
-
 
    // Create full-layout notification
 var notificationFull = app7.notification.create({
@@ -147,6 +141,27 @@ var notificationFull = app7.notification.create({
 
   });
 
+  
+var dialogCodi = app7.dialog.create({
+    title: 'Verificación de codigo',
+    text: 'Por favor ingresa tu codigo',
+    content: '<input type="codigo" name="codigo" id="codigo" placeholder="codigo Registrado">',    
+    buttons: [{text: 'checar'}],
+    onClick: function (dialog) {
+       revCodigo();
+    },
+
+});
+
+
+var dialogPrueba = app7.dialog.create({
+  text: 'Hello World',
+  on: {
+    opened: function () {
+      console.log('Dialog opened')
+    }
+  }
+})
 
   function Ingresar(){
 
@@ -183,6 +198,43 @@ var notificationFull = app7.notification.create({
         app7.preloader.hide();
       
       }
+
+      });
+
+  }
+
+
+  function revCodigo(){
+
+    var codigo = $$('#codigo').val();
+  
+
+    app7.preloader.show('gray');
+
+    app7.request({
+      url: 'http://localhost/adman/api/codigo.php',
+      data:{codigos:codigo},
+      method:'POST',
+      crossDomain: true,
+      success:function(data){
+           
+        app7.preloader.hide();
+
+        var objson = JSON.parse(data);
+
+        if(objson.data == "si"){
+     
+        mainView.router.navigate('/registro/',{animate:true});
+        
+        }else{
+          alert("CODIGO INCORRECTO O YA USADO");
+        }
+      
+      },
+      error:function(error){
+        app7.preloader.hide();
+      
+      }
       
       });
 
@@ -202,7 +254,7 @@ var notificationFull = app7.notification.create({
       app7.preloader.show('blue');
   
       app7.request({
-        url: 'http://localhost/team/api/users.php',
+        url: 'http://localhost/adman/api/users.php',
         data:{usuario:usuario,password:password,nombre:nombre,apellidos:apellidos,correo:correo,telefono:telefono},
         method:'POST',
         crossDomain: true,
@@ -214,8 +266,7 @@ var notificationFull = app7.notification.create({
   
           if(objson.status_message == "CORRECTO"){
   
-          alert("Muchas gracias por registarte ya puedes acceder");
-          mainView.router.navigate('/login/',{animate:true});
+          bajaCodigo();
           
           }else{
   
@@ -232,10 +283,7 @@ var notificationFull = app7.notification.create({
         });
   
   }
-
-
  
-
   function AbrirNotificacion(){
     
 
@@ -244,53 +292,34 @@ var notificationFull = app7.notification.create({
 
   }
 
+  
+  function checarCodi(){
+    
 
-function prueba(){
+    dialogCodi.open();
+   
 
-  alert("cambio");
-}
+  }
+
+ 
 
 
   function MuestraMensaje(){
       alert("ehh funciona!!!");
       console.log("ehh funciona!!");
   }
-
-  //es la qe se copio para el dialogo de inicio
-  $$('.open-password').on('click', function () {
-    app7.dialog.password('Enter your username and password', function (password) {
-      app7.dialog.alert('Thank you!<br>Password:' + password);
-    });
-  });
   
 
   $$(document).on('page:init', '.page[data-name="login"]', function (e) {
      
-    $$('#texto-login').html('Si ');
-
-    var dialog = app7.dialog.create({password})
-
-    $$('.open-password').on('click', function () {
-      app7.dialog.password('Enter your username and password', function (password) {
-        app7.dialog.alert('Thank you!<br>Password:' + password);
-      });
-    });
-
+/*
     var calendarDefault = app7.calendar.create({
       inputEl: '#demo-calendar-default',
     });
-    
+    */
           
   
   });
-
-  // Password
-$$('.open-password').on('click', function () {
-  app.dialog.password('Enter your username and password', function (password) {
-    app.dialog.alert('Thank you!<br>Password:' + password);
-  });
-});
-
 
 
   $$(document).on('page:init', '.page[data-name="home"]', function (e) {
@@ -300,114 +329,9 @@ $$('.open-password').on('click', function () {
     
      //app7.panel.enableSwipe('left');
 
-     getSlider();
 
-     getInmuebles();
 
   });
-
-
-  $$(document).on('page:init', '.page[data-name="inmueble"]', function (e) {
-
-  
-
-    app7.preloader.show('blue');
-    
-
-    app7.request({
-      url: 'http://eleadex.online/team/api/inmueble.php',
-      data:{id:idinmueble},
-      method:'POST',
-      crossDomain: true,
-      success:function(data){
-           
-        app7.preloader.hide();
-
-        var objson = JSON.parse(data);
-
-        var inmueble= "";
-
-
-        console.log(objson.data.titulo);
-
-
-        $$('#titulo-inmueble').html(objson.data.titulo);
-        $$('#descripcion-inmueble').html(objson.data.descripcion);
-        $$('#precio-inmueble').html(objson.data.precio);
-
-
-        $$('#imagen1-inmueble').html('<img src="'+objson.data.imagen1+'" width="100%"/>');
-
-                 
-      
-      },
-      error:function(error){
-
-        app7.preloader.hide();
-      
-      }
-      
-      });
-
-    
-
-      
-
-
-});
-
-
-
-
-
-function getSlider(){
-
-      app7.preloader.show('blue');
-
-
-      app7.request({
-        url: 'http://localhost/team/api/slider.php',
-        data:{},
-        method:'POST',
-        crossDomain: true,
-        success:function(data){
-             
-          app7.preloader.hide();
-  
-          var objson = JSON.parse(data);
-
-          var slider= "";
-
-          var swiper = app7.swiper.get('.swiper-container');
-          swiper.removeAllSlides();
-
-          for(x in objson.data){
-                
-               
-
-
-               var slide ='<div class="swiper-slide"><img src="'+objson.data[x].imagen+'" /></div>';
-
-               swiper.appendSlide(slide);
-
-          }
-  
-          
-        
-        },
-        error:function(error){
-  
-          app7.preloader.hide();
-        
-        }
-        
-        });
-
-
-
-
-}
-
 
 
 function showMenu(){
@@ -417,70 +341,11 @@ function showMenu(){
 }
 
 
-function getInmuebles(){
-
-
-  app7.preloader.show();
-
-
-  $$('#inmuebles').html("");
-
-
-      app7.request({
-        url: 'http://localhost/team/api/inmuebles.php',
-        data:{},
-        method:'POST',
-        crossDomain: true,
-        success:function(data){
-             
-          app7.preloader.hide();
-  
-          var objson = JSON.parse(data);
-
-          var inmueble= "";
-
-         
-
-          for(x in objson.data){
-                
-                console.log(objson.data[x].titulo);
 
 
 
-                inmueble =' <div class="card demo-card-header-pic"><div style="background-image:url('+objson.data[x].imagen1+')" class="card-header align-items-flex-end">'+objson.data[x].titulo+'</div><div class="card-content card-content-padding"><p class="date">Posted on January 21, 2015</p><p>'+objson.data[x].titulo+'</p></div><div class="card-footer"><a href="#" class="link">'+objson.data[x].precio+'</a><a href="javascript:verinmueble('+objson.data[x].id+')" class="link">Ver más</a></div></div>';
-
-                $$('#inmuebles').append(inmueble);
-
-          }
-  
-          
-        
-        },
-        error:function(error){
-  
-          app7.preloader.hide();
-        
-        }
-        
-        });
 
 
-}
-
-
-
-function verinmueble(id){
-
-      //alert(id);
-
-
-      idinmueble = id;
-
-      mainView.router.navigate('/inmueble/',{animate:true});
-
-
-
-}
 
 
 
