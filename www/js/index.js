@@ -144,9 +144,9 @@ var notificationFull = app7.notification.create({
   
 var dialogCodi = app7.dialog.create({
     title: 'Verificación de codigo',
-    text: 'Por favor ingresa tu codigo',
+    text: 'Por favor ingrese su codigo',
     content: '<input type="codigo" name="codigo" id="codigo" placeholder="codigo Registrado">',    
-    buttons: [{text: 'checar'}],
+    buttons: [{text: 'Verificar'}],
     onClick: function (dialog) {
        revCodigo();
     },
@@ -240,22 +240,43 @@ var dialogPrueba = app7.dialog.create({
 
   }
 
+  function pruebavalores(){
+
+    var codigo = $$('#codigo').val();
+    var codisponible = 'no';
+    var usuario = $$('#usuarior').val();
+    var password = $$('#passwordr').val();
+    var perfil = $$('#perfilr').val();
+    var nombre = $$('#nombrer').val();
+    var telefono = $$('#telefonor').val();
+    var correo = $$('#correor').val();
+
+
+    alert("el valor es"+codigo);
+
+  }
+    
+
+
 
   function Registrarse(){
 
-      var nombre = $$('#nombre').val();
-      var apellidos = $$('#apellidos').val();
-      var telefono = $$('#telefono').val();
-      var correo = $$('#correo').val();
+      var codigo = $$('#codigo').val();
+      var codisponible = 'no';
       var usuario = $$('#usuarior').val();
       var password = $$('#passwordr').val();
-  
-
+      var perfil = $$('#perfilr').val();
+      var nombre = $$('#nombrer').val();
+      var telefono = $$('#telefonor').val();
+      var correo = $$('#correor').val();
+      
       app7.preloader.show('blue');
+
+    
   
       app7.request({
         url: 'http://localhost/adman/api/users.php',
-        data:{usuario:usuario,password:password,nombre:nombre,apellidos:apellidos,correo:correo,telefono:telefono},
+        data:{ codigo:codigo,codisponible:codisponible,usuario:usuario,password:password,perfil:perfil,nombre:nombre,telefono:telefono,correo:correo,},
         method:'POST',
         crossDomain: true,
         success:function(data){
@@ -266,7 +287,7 @@ var dialogPrueba = app7.dialog.create({
   
           if(objson.status_message == "CORRECTO"){
   
-          bajaCodigo();
+  
           
           }else{
   
