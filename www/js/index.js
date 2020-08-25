@@ -165,8 +165,11 @@ var dialogPrueba = app7.dialog.create({
 
   function Ingresar(){
 
+    
     var usuario = $$('#usuario').val();
     var password = $$('#password').val();
+
+    if(usuario!=""){
 
     app7.preloader.show('gray');
 
@@ -200,6 +203,9 @@ var dialogPrueba = app7.dialog.create({
       }
 
       });
+    } else{
+      alert("Ingrese un usuario por favor")
+    }
 
   }
 
