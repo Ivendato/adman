@@ -100,7 +100,13 @@ var app7 = new Framework7({
       {
         path: '/home/',
         url: 'views/home.html',
-      },{
+      },
+      {
+        path: '/nueva/',
+        url: 'views/nueva.html',
+      },
+      
+      {
         path: '/login/',
         url: 'views/login.html',
       },
@@ -356,9 +362,34 @@ var dialogPrueba = app7.dialog.create({
     
      //app7.panel.enableSwipe('left');
 
-
-
   });
+
+  $$(document).on('page:init', '.page[data-name="nueva"]', function (e) {
+
+    var fruits = ('Apple Apricot Avocado Banana Melon Orange Peach Pear Pineapple 955l01_traxacavo').split(' ');  
+
+    var autocompleteDropdownSimple = app7.autocomplete.create({
+      inputEl: '#autocomplete-dropdown',
+      openIn: 'dropdown',
+      source: function (query, render) {
+        var results = [];
+        if (query.length === 0) {
+          render(results);
+          return;
+        }
+        // Find matched items
+        for (var i = 0; i < fruits.length; i++) {
+          if (fruits[i].toLowerCase().indexOf(query.toLowerCase()) >= 0) results.push(fruits[i]);
+        }
+        // Render items by passing array with result items
+        render(results);
+      }
+    });
+
+ });
+
+
+  
 
 
 function showMenu(){
