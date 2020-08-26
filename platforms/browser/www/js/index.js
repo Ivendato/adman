@@ -102,8 +102,8 @@ var app7 = new Framework7({
         url: 'views/home.html',
       },
       {
-        path: '/nueva/',
-        url: 'views/nueva.html',
+        path: '/registro/',
+        url: 'views/registro.html',
       },
       
       {
@@ -111,8 +111,8 @@ var app7 = new Framework7({
         url: 'views/login.html',
       },
       {
-        path: '/registro/',
-        url: 'views/registro.html',
+        path: '/nueva/',
+        url: 'views/nueva.html',
       },{
         path: '/perfil/',
         url: 'views/perfil.html',

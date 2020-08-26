@@ -156,20 +156,29 @@ h1 {
  
   }
 
-  .trans{
-    background: transparent;
+  .text-blue{
+    color: #1d4e81;
+   
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    height: 70px;
+
   }
 
 
-  .text-white{
-    color: white;
+  .text-gris{
+    color: rgb(77, 120, 155);
+    font-size: 12px;
+    padding: 20px;
+    font-weight: 900;
   }
 
-  .center{
-    text-align: center;
-  }
 
-  .size-50 { font-size: 50px }
+  .size-25 { 
+    font-size: 20px; 
+    color: rgb(77, 120, 155);
+    background: gray;
+  }
 
 
   :root {
