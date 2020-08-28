@@ -121,6 +121,22 @@ var app7 = new Framework7({
         path: '/falla/',
         url: 'views/falla.html',
       },
+      {
+        path: '/seguimiento/',
+        url: 'views/seguimiento.html',
+      },
+      {
+        path: '/anteriores/',
+        url: 'views/anteriores.html',
+      },
+      {
+        path: '/horas/',
+        url: 'views/horas.html',
+      },
+      {
+        path: '/servicio/',
+        url: 'views/servicio.html',
+      },
     
     ],
     // ... other parameters
@@ -398,6 +414,11 @@ function showMenu(){
 
 }
 
+function mostrarmenu(){
+
+  app7.panel.open('right', true);
+
+}
 
 
 
