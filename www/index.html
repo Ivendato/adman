@@ -55,29 +55,7 @@
     
     <!-- App root element -->
     <div id="app">
-
-      <!-- revisar como aparecer
-      <div class="dialog dialog-buttons-2 modal-in" style="display: block;">
-        <div class="dialog-inner">
-          <div class="dialog-title">Framework7</div>
-          <div class="dialog-text">Enter your username and password</div>
-          
-            <div class="dialog-input-field input">
-              <input type="password" name="dialog-password" placeholder="Password" class="dialog-input">
-            </div>
-        </div>
-        
-        <div class="dialog-buttons">
-          
-            <span class="dialog-button">Cancel</span>
-          
-            <span class="dialog-button dialog-button-bold">OK</span>
-          
-        </div>
-      
-      </div> -->
     
-
       <div class="panel panel-left panel-reveal">
         <div class="blockfalla center">
        
@@ -152,7 +130,74 @@
                     <div class="item-content">
                       <div class="item-media"><i class="icon icon-f7"></i></div>
                       <div class="item-inner">
+                        <div class="item-title"><a class="panel-close" href="#">Close me</a></div>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-f7"></i></div>
+                      <div class="item-inner">
+                        <div class="item-title"><a class="panel-open" href="#" data-panel=".panel-right-1">Open Right Panel</a></div>
+                      </div>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+        
+            
+          </div>
+              
+        </div>
+      </div>
+
+      <div class="panel panel-right panel-right-1 panel-cover panel-resizable panel-init">
+        <div class="block">
+        
+          <p><a class="panel-close" href="#">Close me</a></p>
+          <div class="card">
+            <div class="card-header title text-blue">Menu de Operación</div>
+           
+            <div class="card-content">
+              <img src="./img/engrane.jpg" height="50%", width="100%">
+              <!-- Card content -->
+              <div class="list media-list">
+                <ul>
+
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-f7"></i></div>
+                      <div class="item-inner">
+                        <a href="/horas/" class="tab-link">
+                          <i class="icon f7-icons if-not-md size-20">eye</i>
+                          <i class="icon material-icons md-only size-20">Tiempo</i>
+                          <span class="tabbar-label text-gris">Horas de operacion</span>
+                        </a>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-f7"></i></div>
+                      <div class="item-inner">
                         <div class="item-title"></div>
+                      </div>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div class="item-content">
+                      <div class="item-media"><i class="icon icon-f7"></i></div>
+                      <div class="item-inner">
+                        <a href="/servicio/" class="tab-link">
+                          <i class="icon f7-icons if-not-md size-20">eye</i>
+                          <i class="icon material-icons md-only size-20">Tiempo</i>
+                          <span class="tabbar-label text-gris">servicio</span>
+                        </a>
                       </div>
                     </div>
                   </li>
@@ -165,15 +210,6 @@
           </div>
 
 
-
-              
-        </div>
-      </div>
-
-      <div class="panel panel-right panel-right-1 panel-cover panel-resizable panel-init">
-        <div class="block">
-          <p>Right Panel content here</p>
-          <p><a class="panel-close" href="#">Close me</a></p>
           <p><a class="panel-open" href="#" data-panel=".panel-left">Open Left Panel</a></p>
         </div>
       </div>
