@@ -2,6 +2,8 @@
 var $$ = Dom7;
 
 //MuestraMensaje();
+
+var codigo;
  
 var app = {
     /* Application Constructor
@@ -170,6 +172,8 @@ var dialogCodi = app7.dialog.create({
     content: '<input type="codigo" name="codigo" id="codigo" placeholder="codigo Registrado">',    
     buttons: [{text: 'Verificar'}],
     onClick: function (dialog) {
+      codigo=document.getElementById("codigo").value;
+
        revCodigo();
     },
 
@@ -270,7 +274,7 @@ var dialogPrueba = app7.dialog.create({
 
   function pruebavalores(){
 
-    var codigo = $$('#codigo').val();
+   
     var codisponible = 'no';
     var usuario = $$('#usuarior').val();
     var password = $$('#passwordr').val();
@@ -289,7 +293,7 @@ var dialogPrueba = app7.dialog.create({
 
   function Registrarse(){
 
-      var codigo = $$('#codigo').val();
+    
       var codisponible = 'no';
       var usuario = $$('#usuarior').val();
       var password = $$('#passwordr').val();
