@@ -317,8 +317,9 @@ var dialogPrueba = app7.dialog.create({
           var objson = JSON.parse(data);
   
           if(objson.status_message == "CORRECTO"){
-  
-  
+            alert("Gracias por registrarse");
+            mainView.router.navigate('/login/',{animate:true});
+
           
           }else{
   
