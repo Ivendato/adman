@@ -173,7 +173,6 @@ var dialogCodi = app7.dialog.create({
     buttons: [{text: 'Verificar'}],
     onClick: function (dialog) {
       codigo=document.getElementById("codigo").value;
-
        revCodigo();
     },
 
@@ -284,7 +283,7 @@ var dialogPrueba = app7.dialog.create({
     var correo = $$('#correor').val();
 
 
-    alert("el valor es"+codigo);
+    alert("el valor es"+perfil);
 
   }
     
@@ -293,7 +292,7 @@ var dialogPrueba = app7.dialog.create({
 
   function Registrarse(){
 
-    
+      var codigos = codigo;
       var codisponible = 'no';
       var usuario = $$('#usuarior').val();
       var password = $$('#passwordr').val();
@@ -308,7 +307,7 @@ var dialogPrueba = app7.dialog.create({
   
       app7.request({
         url: 'http://localhost/adman/api/users.php',
-        data:{ codigo:codigo,codisponible:codisponible,usuario:usuario,password:password,perfil:perfil,nombre:nombre,telefono:telefono,correo:correo,},
+        data:{ codigo:codigos,usuario:usuario,password:password,perfil:perfil,nombre:nombre,telefono:telefono,correo:correo,},
         method:'POST',
         crossDomain: true,
         success:function(data){
